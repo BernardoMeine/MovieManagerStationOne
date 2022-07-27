@@ -1,0 +1,85 @@
+{
+  "openapi":"3.0.0",
+  "info": {
+    "title":"MovieManager Documentation",
+    "description":"This is a movie management API documentation",
+    "version":"1.0.0",
+    "contact": {
+      "email":"bemeine15@hotmail.com"
+    }
+  },
+  "paths": {
+    "/movies":{
+      "post":{
+        "tags":["Movies"],
+        "summary":"Post a movie",
+        "description":"Post a new movie",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type":"object",
+                "properties": {
+                  "title": {
+                   "type":"string"
+                  },
+                 "description": {
+                   "type":"string"
+                 },
+                 "author": {
+                  "type":"string"
+                }
+               },
+               "example": {
+                 "title":"movie title sample",
+                 "description":"movie description sample",
+                 "author":"movie author sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description":"Posted"
+          },
+          "500": {
+            "description":"Movie Already Exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Movie"],
+        "summary": "List all movies",
+        "description":"List all movies",
+        "responses": {
+          "200": {
+            "description":"Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"array",
+                  "items": {
+                    "type":"object",
+                    "properties": {
+                      "title": {
+                       "type":"string"
+                      },
+                     "description": {
+                       "type":"string"
+                     },
+                     "author": {
+                      "type":"string"
+                    }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+ }
+    
